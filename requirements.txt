@@ -1,0 +1,14 @@
+cython
+git+https://github.com/cocodataset/cocoapi.git#subdirectory=PythonAPI&egg=pycocotools
+submitit
+torch>=1.5.0
+torchvision>=0.6.0
+git+https://github.com/cocodataset/panopticapi.git#egg=panopticapi
+git+https://github.com/facebookresearch/detectron2.git
+scipy
+onnx
+onnxruntime
+Pillow
+imantics
+opencv-python
+numpy
