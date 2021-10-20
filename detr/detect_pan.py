@@ -261,7 +261,7 @@ if __name__ == '__main__':
             pan_pred = cv2.copyMakeBorder(np.float32(pan_pred), top=15, bottom=15, left=15, right=15,
                                           borderType=cv2.BORDER_CONSTANT, value=(255, 255, 255))
 
-            cv2.imwrite(f"{args.save_location}/pred_{i}.png", cv2.hconcat([im_org, obj_pred, pan_pred]))
+            cv2.imwrite(f"{args.save_location}/pred_{i}.jpeg", cv2.hconcat([im_org, obj_pred, pan_pred]))
             i += 1
 
         if i == args.num_test:

@@ -76,7 +76,7 @@ class CustomPanoptic:
         return height, width
 
     def get_coco_masks(self, ann_info):
-        ann_path = Path(self.ann_folder) / ann_info['file_name'].split('/')[-1].replace('.jpg', '.png')
+        ann_path = Path(self.ann_folder) / "data/coco_val2017/annotations/panoptic_val2017" / ann_info['file_name'].split('/')[-1].replace('.jpg', '.png')
 
         if "segments_info" in ann_info:
             masks = np.asarray(Image.open(ann_path), dtype=np.uint32)
@@ -101,22 +101,25 @@ class CustomPanoptic:
 
 
 def build(image_set, args):
-    img_folder_root = Path(args.coco_path)
-    ann_folder_root = Path(args.coco_panoptic_path)
+    # img_folder_root = Path(args.coco_path)
+    # ann_folder_root = Path(args.coco_panoptic_path)
+    img_folder_root = Path("")
+    ann_folder_root = Path("")
     assert img_folder_root.exists(), f'provided custom path {img_folder_root} does not exist'
     assert ann_folder_root.exists(), f'provided custom path {ann_folder_root} does not exist'
     # mode = 'panoptic'
     PATHS = {
-        "train": ("", Path("") / 'train_panoptic.json'),
-        "val": ("", Path("") / 'test_panoptic.json'),
+        "train": ("", Path("data") / 'train_panoptic.json'),
+        "val": ("", Path("data") / 'test_panoptic.json'),
     }
 
     img_folder, ann_file = PATHS[image_set]
     img_folder_path = img_folder_root / img_folder
-    ann_folder = ann_folder_root / "coco_val2017/annotations/panoptic_val2017"
+    ann_folder = ann_folder_root
     ann_file = ann_folder_root / ann_file
 
     dataset = CustomPanoptic(img_folder_path, ann_folder, ann_file,
                              transforms=make_coco_transforms(image_set), return_masks=args.masks)
 
     return dataset
+
