@@ -6,10 +6,6 @@
 
 - [Fine Tuning DeTr: Object Detection and Segmentation](#fine-tuning-detr-object-detection-and-segmentation)
 - [Methodology](#methodology)
-      - [Step-1) labeling](#step-1-labeling)
-      - [Step-2) Predefined coco classes](#step-2-predefined-coco-classes)
-      - [Step-3) What about the two separated outputs of DeTr Prediction & Ground Truth?](#step-3-what-about-the-two-separated-outputs-of-detr-prediction--ground-truth)
-      - [Step-4) Final step](#step-4-final-step)
 - [Data Structure](#data-structure)
   - [COCO Format](#coco-format)
 - [Object Detection](#object-detection)
